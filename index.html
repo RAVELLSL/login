@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acesso Moderno</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url('https://media.tenor.com/wngVe_Erkh8AAAAC/blue-white.gif');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .login-container {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .login-container h2 {
+    text-align: center;
+    margin-bottom: 24px;
+    color: #333;
+  }
+
+  .login-input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+  }
+
+  .login-actions {
+    margin-top: 20px;
+  }
+
+  .show-password {
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo */
+    align-items: center;
+  }
+
+  .show-password input {
+    margin-right: 10px;
+  }
+
+  .login-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #647dee;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .login-button:hover {
+    background-color: #5668c7;
+  }
+
+  .feedback {
+    color: red;
+    display: none;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  @media (max-width: 768px) {
+  .login-container {
+    padding: 20px;
+    margin: 20px; /* Adiciona uma pequena margem em volta do formulário para não tocar nas bordas da tela */
+  }
+
+  .login-input, .login-button {
+    padding: 12px; /* Reduz um pouco o padding para economizar espaço */
+  }
+
+  .login-container h2 {
+    margin-bottom: 18px; /* Diminui um pouco a margem para economizar espaço */
+    font-size: 1.5rem; /* Opcional: ajusta o tamanho do título para melhor leitura em telas menores */
+  }
+
+  .show-password label {
+    font-size: 0.9rem; /* Reduz o tamanho da fonte do texto da caixa de seleção para economizar espaço */
+  }
+}
+
+</style>
+</head>
+<body>
+
+<div class="login-container">
+  <h2>Acesso</h2>
+  <input type="password" id="password" class="login-input" placeholder="Senha" onkeypress="handleKeyPress(event)">
+  <div class="show-password">
+    <input type="checkbox" id="showPasswordCheckbox" onclick="togglePasswordVisibility()">
+    <label for="showPasswordCheckbox">Mostrar Senha</label>
+  </div>
+  <div class="login-actions">
+    <button onclick="validatePassword()" class="login-button">Entrar</button>
+    <p id="feedback" class="feedback">Senha incorreta!</p>
+  </div>
+</div>
+
+<script>
+  function togglePasswordVisibility() {
+    var passwordInput = document.getElementById("password");
+    var checkbox = document.getElementById("showPasswordCheckbox");
+    passwordInput.type = checkbox.checked ? 'text' : 'password';
+  }
+
+  function validatePassword() {
+    var password = document.getElementById("password").value;
+    var feedback = document.getElementById("feedback");
+
+    if (password === "aluno") {
+      window.location.href = "https://ravellsl.github.io/rstech-aluno/"; // Substitua pelo seu URL
+    } else {
+      feedback.style.display = "block";
+    }
+  }
+
+  function handleKeyPress(event) {
+    var key = event.keyCode || event.which;
+    if (key === 13) { // Código da tecla Enter
+      validatePassword();
+    }
+  }
+</script>
+
+</body>
+</html>
